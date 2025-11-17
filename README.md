@@ -26,7 +26,7 @@ contact-form_test
 - laravel 8.83.29
 
 ## ER図
-![ER図](ER-1.png)
+![alt text](src/database/ER.png)
 
 ## URL
 - 開発環境：http://localhost
