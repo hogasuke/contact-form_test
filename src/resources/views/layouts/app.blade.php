@@ -17,6 +17,13 @@
       <a class="header__logo" href="/">
         FashionablyLate
       </a>
+      <nav>
+        <ul class="header-nav">
+          <li class="header-nav__item">
+            @yield('button')
+          </li>
+        </ul>
+      </nav>
     </div>
   </header>
 
