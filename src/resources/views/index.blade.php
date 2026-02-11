@@ -9,7 +9,7 @@
   <div class="contact-form__heading">
     <h2>Contact</h2>
   </div>
-  <form class="form" action="/confirm" method="post">
+  <form class="form" action="/confirm" method="post" @submit.prevent novalidate>
     @csrf
     <div class="form__group">
       <div class="form__group-title">
@@ -40,13 +40,13 @@
       <div class="form__group-content">
         <div class="form__input--radio">
           <label>
-            <input type="radio" name="gender" value="男性" {{ old('gender') == '男性' ? 'checked' : '' }}>男性
+            <input type="radio" name="gender" value=1 {{ old('gender') == 1 ? 'checked' : '' }}>男性
           </label>
           <label>
-            <input type="radio" name="gender" value="女性" {{ old('gender') == '女性' ? 'checked' : '' }}>女性
+            <input type="radio" name="gender" value=2 {{ old('gender') == 2 ? 'checked' : '' }}>女性
           </label>
           <label>
-            <input type="radio" name="gender" value="その他" {{ old('gender') == 'その他' ? 'checked' : '' }}>その他
+            <input type="radio" name="gender" value=3 {{ old('gender') == 3 ? 'checked' : '' }}>その他
           </label>
         </div>
         <div class="form__error">

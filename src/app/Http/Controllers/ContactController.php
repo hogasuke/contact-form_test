@@ -31,8 +31,20 @@ class ContactController extends Controller
             'building',
             'detail'
         ]);
+        $gender = $request->only(['gender']);
         $category = Category::find($contact['category_id']);
-        return view('confirm', compact('contact', 'category'));
+        switch($gender['gender']) {
+            case 1:
+                $gender['gender'] = '男性';
+                break;
+            case 2:
+                $gender['gender'] = '女性';
+                break;
+            case 3:
+                $gender['gender'] = 'その他';
+                break;
+        }
+        return view('confirm', compact('contact', 'category', 'gender'));
     }
 
     public function back(ContactRequest $request)
@@ -78,7 +90,7 @@ class ContactController extends Controller
 
     public function admin()
     {
-        $contacts = Contact::simplePaginate(8);
+        $contacts = Contact::Paginate(7);
         return view('admin', ['contacts' => $contacts]);
     }
 

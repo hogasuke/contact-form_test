@@ -12,32 +12,30 @@
 @endsection
 
 @section('content')
-<div class="attendance__alert">
-  // メッセージ機能
-</div>
-
-<div class="attendance__content">
-  <div class="attendance__panel">
-    <form class="attendance__button">
-      <button class="attendance__button-submit" type="submit">勤務開始</button>
-    </form>
-    <form class="attendance__button">
-      <button class="attendance__button-submit" type="submit">勤務終了</button>
-    </form>
+<div class="contact-form__content">
+  <div class="contact-form__heading">
+    <h2>Admin</h2>
   </div>
-  <div class="attendance-table">
-    <table class="attendance-table__inner">
-      <tr class="attendance-table__row">
-        <th class="attendance-table__header">名前</th>
-        <th class="attendance-table__header">開始時間</th>
-        <th class="attendance-table__header">終了時間</th>
-      </tr>
-      <tr class="attendance-table__row">
-        <td class="attendance-table__item">サンプル太郎</td>
-        <td class="attendance-table__item">サンプル</td>
-        <td class="attendance-table__item">サンプル</td>
-      </tr>
-    </table>
-  </div>
+  <nav class="admin-nav">
+    <ul>
+      <input class="admin-nav__keyword" type="text" name="keyword" placeholder="名前やメールアドレスを入力してください">
+      <select class="admin-nav__gender" name="gender">
+        <option value="" selected>性別</option>
+        <option value="1">男性</option>
+        <option value="2">女性</option>
+        <option value="3">その他</option>
+      </select>
+      <select class="admin-nav__category" name="category">
+        <option value="" selected>お問い合わせの種類</option>
+        <option value="1">男性</option>
+        <option value="2">女性</option>
+        <option value="3">その他</option>
+      </select>
+      <input type="date"></input>
+      <button class="admin-nav__button" type="submit">検索</button>
+      <button class="admin-nav__button--reset" type="submit">リセット</button>
+    </ul>
+  </nav>
 </div>
+{{ $contacts->links() }}
 @endsection
