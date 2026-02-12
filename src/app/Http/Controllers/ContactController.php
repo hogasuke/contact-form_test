@@ -31,8 +31,8 @@ class ContactController extends Controller
             'building',
             'detail'
         ]);
-        $gender = $request->only(['gender']);
         $category = Category::find($contact['category_id']);
+        $gender = $request->only(['gender']);
         switch($gender['gender']) {
             case 1:
                 $gender['gender'] = '男性';
@@ -67,7 +67,6 @@ class ContactController extends Controller
             'building',
             'detail'
         ]);
-
         switch($contact['gender']) {
             case '男性':
                 $contact['gender'] = 1;
@@ -79,12 +78,9 @@ class ContactController extends Controller
                 $contact['gender'] = 3;
                 break;
         }
-
         $contact['tel'] = "{$contact['tel1']}-{$contact['tel2']}-{$contact['tel3']}";
         unset($contact['tel1'], $contact['tel2'], $contact['tel3']);
-
         Contact::create($contact);
-
         return view('thanks');
     }
 

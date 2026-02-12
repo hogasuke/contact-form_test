@@ -53,19 +53,12 @@
       @foreach ($contacts as $contact)
       <tr class="contact-table__row">
         <td class="contact-table__item">
-          <form class="update-form" action="/contacts/update" method="post">
-            @method('PATCH')
-            @csrf
-            <div class="update-form__item">
-              <span class="update-form__item-input">{{ $contact['last_name'] }}　{{ $contact['first_name'] }}</span>
-              <span class="update-form__item-input">{{ $contact['gender'] }}</span>
-              <span class="update-form__item-input">{{ $contact['email'] }}</span>
-              <span class="update-form__item-input">{{ $contact['category_id'] }}</span>
-            </div>
-            <div>
-              <button class="contact-table__item-button" type="submit">詳細</button>
-          </form>
-        </td>
+          <span class="contact-table__name">{{ $contact['last_name'] }}　{{ $contact['first_name'] }}</span>
+          <span class="contact-table__gender">{{ $contact['gender'] }}</span>
+          <span class="contact-table__email">{{ $contact['email'] }}</span>
+          <span class="contact-table__category">{{ $contact['category_id'] }}</span>
+          <span class="contact-table__detail"></span>
+      </td>
       </tr>
       @endforeach
   </div>
