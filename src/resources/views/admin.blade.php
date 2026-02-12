@@ -36,6 +36,38 @@
       <button class="admin-nav__button--reset" type="submit">リセット</button>
     </ul>
   </nav>
+  <nav class="admin-nav">
+    <button class="admin-nav__export-button" type="submit">エクスポート</button>
+    <div class="admin-nav__pagination">{{ $contacts->links() }}</div>
+  </nav>
+  <div class="contact-table">
+    <table class="contact-table__inner">
+      <tr class="contact-table__row">
+        <th class="contact-table__header">
+          <span class="contact-table__header-span">お名前</span>
+          <span class="contact-table__header-span">性別</span>
+          <span class="contact-table__header-span">メールアドレス</span>
+          <span class="contact-table__header-span">お問い合わせの種類</span>
+        </th>
+      </tr>
+      @foreach ($contacts as $contact)
+      <tr class="contact-table__row">
+        <td class="contact-table__item">
+          <form class="update-form" action="/contacts/update" method="post">
+            @method('PATCH')
+            @csrf
+            <div class="update-form__item">
+              <span class="update-form__item-input">{{ $contact['last_name'] }}　{{ $contact['first_name'] }}</span>
+              <span class="update-form__item-input">{{ $contact['gender'] }}</span>
+              <span class="update-form__item-input">{{ $contact['email'] }}</span>
+              <span class="update-form__item-input">{{ $contact['category_id'] }}</span>
+            </div>
+            <div>
+              <button class="contact-table__item-button" type="submit">詳細</button>
+          </form>
+        </td>
+      </tr>
+      @endforeach
+  </div>
 </div>
-{{ $contacts->links() }}
 @endsection

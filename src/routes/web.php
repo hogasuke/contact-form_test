@@ -12,3 +12,5 @@ Route::post('/thanks', [ContactController::class, 'thanks']);
 Route::middleware('auth')->group(function () {
     Route::get('/admin', [ContactController::class, 'admin']);
 });
+
+Route::patch('/contacts/update', [ContactController::class, 'update']);
