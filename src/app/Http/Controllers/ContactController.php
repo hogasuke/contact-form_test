@@ -87,7 +87,8 @@ class ContactController extends Controller
     public function admin()
     {
         $contacts = Contact::Paginate(7);
-        return view('admin', compact('contacts'));
+        $categories = Category::all();
+        return view('admin', compact('contacts', 'categories'));
     }
 
     public function search(Request $request)

@@ -34,8 +34,8 @@
           @endforeach
         </select>
         <input type="date">
-        <button class="search-form__item-button" type="submit">検索</button>
-        <button class="search-form__item-button--reset" type="submit">リセット</button>
+        <button class="search-form__item-button-submit" type="submit">検索</button>
+        <button class="search-form__item-button-reset" type="button" onclick="location.href='/admin'">リセット</button>
       </div>
     </form>
   </nav>
