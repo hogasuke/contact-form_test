@@ -33,7 +33,7 @@
             <option value="{{ $category['id'] }}" @selected(request('category') == $category['id'])>{{ $category['content'] }}</option>
           @endforeach
         </select>
-        <input type="date">
+        <input class="search-form__item-created-at" type="date" name="created_at" value="{{ request('created_at') }}">
         <button class="search-form__item-button-submit" type="submit">検索</button>
         <button class="search-form__item-button-reset" type="button" onclick="location.href='/admin'">リセット</button>
       </div>

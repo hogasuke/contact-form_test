@@ -50,4 +50,12 @@ class Contact extends Model
         }
         return $query->where('category_id', $category_id);
     }
+
+    public function scopeCreatedAtSearch($query, $created_at)
+    {
+        if ($created_at === null || $created_at === '') {
+            return $query;
+        }
+        return $query->whereDate('created_at', $created_at);
+    }
 }

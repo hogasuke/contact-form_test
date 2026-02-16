@@ -96,7 +96,8 @@ class ContactController extends Controller
         $query = Contact::with('category')
             ->KeywordSearch($request->keyword)
             ->GenderSearch($request->gender)
-            ->CategorySearch($request->category);
+            ->CategorySearch($request->category)
+            ->CreatedAtSearch($request->created_at);
         $categories = Category::all();
         $contacts = $query->paginate(7)->withQueryString();
         return view('admin', compact('contacts', 'categories'));

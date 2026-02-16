@@ -13,6 +13,8 @@ class ContactFactory extends Factory
      */
     public function definition()
     {
+        $createdAt = $this->faker->dateTimeBetween('-60 days', 'now');
+        $updatedAt = $this->faker->dateTimeBetween($createdAt, 'now');
         return [
             'category_id' => $this->faker->numberBetween(1, 5),
             'first_name' => $this->faker->firstName,
@@ -23,8 +25,8 @@ class ContactFactory extends Factory
             'address' => $this->faker->address,
             'building' => $this->faker->secondaryAddress,
             'detail' => $this->faker->paragraph,
-            'created_at' => now(),
-            'updated_at' => now(),
+            'created_at' => $createdAt,
+            'updated_at' => $updatedAt,
         ];
     }
 }
