@@ -67,7 +67,7 @@ class ContactController extends Controller
             'building',
             'detail'
         ]);
-        $contact['tel'] = "{$contact['tel1']}-{$contact['tel2']}-{$contact['tel3']}";
+        $contact['tel'] = "{$contact['tel1']}{$contact['tel2']}{$contact['tel3']}";
         unset($contact['tel1'], $contact['tel2'], $contact['tel3']);
         Contact::create($contact);
         return view('thanks');
