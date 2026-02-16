@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-// use Illuminate\Http\Request;
+use Illuminate\Http\Request;
 use App\Http\Requests\ContactRequest;
 use App\Models\Category;
 use App\Models\Contact;
@@ -92,7 +92,9 @@ class ContactController extends Controller
 
     public function search(Request $request)
     {
-        $contacts = Contact::query();
-        $category_id = $request->input('category_id');
+        $query = Contact::with('category')->KeywordSearch($request->keyword);
+        $categories = Category::all();
+        $contacts = $query->paginate(7)->withQueryString();
+        return view('admin', compact('contacts', 'categories'));
     }
 }

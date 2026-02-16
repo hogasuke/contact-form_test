@@ -33,14 +33,13 @@ class Contact extends Model
         return $query;
     }
 
+
     public function scopeKeywordSearch($query, $keyword)
     {
         if (!empty($keyword)) {
-            $query->where(function ($q) use ($keyword) {
-                $q->where('first_name', 'like', '%' . $keyword . '%')
-                  ->orWhere('last_name', 'like', '%' . $keyword . '%')
-                  ->orWhere('email', 'like', '%' . $keyword . '%');
-            });
+            $query->where('first_name', 'like', '%' . $keyword . '%')
+                ->orWhere('last_name', 'like', '%' . $keyword . '%')
+                ->orWhere('email', 'like', '%' . $keyword . '%');
         }
         return $query;
     }
