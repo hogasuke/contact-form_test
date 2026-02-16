@@ -67,17 +67,6 @@ class ContactController extends Controller
             'building',
             'detail'
         ]);
-        switch($contact['gender']) {
-            case '男性':
-                $contact['gender'] = 1;
-                break;
-            case '女性':
-                $contact['gender'] = 2;
-                break;
-            case 'その他':
-                $contact['gender'] = 3;
-                break;
-        }
         $contact['tel'] = "{$contact['tel1']}-{$contact['tel2']}-{$contact['tel3']}";
         unset($contact['tel1'], $contact['tel2'], $contact['tel3']);
         Contact::create($contact);
