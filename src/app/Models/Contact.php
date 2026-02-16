@@ -25,6 +25,20 @@ class Contact extends Model
         return $this->belongsTo(category::class);
     }
 
+    public function getGenderLabelAttribute()
+    {
+        switch ($this->gender) {
+            case 1:
+                return '男性';
+            case 2:
+                return '女性';
+            case 3:
+                return 'その他';
+            default:
+                return '未設定';
+        }
+    }
+
     public function scopeKeywordSearch($query, $keyword)
     {
         if (!empty($keyword)) {

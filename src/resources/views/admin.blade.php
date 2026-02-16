@@ -57,9 +57,9 @@
       <tr class="contact-table__row">
         <td class="contact-table__item">
           <span class="contact-table__name">{{ $contact['last_name'] }}　{{ $contact['first_name'] }}</span>
-          <span class="contact-table__gender">{{ $contact['gender'] }}</span>
+          <span class="contact-table__gender">{{ $contact->gender_label }}</span>
           <span class="contact-table__email">{{ $contact['email'] }}</span>
-          <span class="contact-table__category">{{ $contact['category_id'] }}</span>
+          <span class="contact-table__category">{{ $contact->category->content }}</span>
           <span class="contact-table__detail"></span>
       </td>
       </tr>
