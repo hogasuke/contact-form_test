@@ -25,15 +25,6 @@ class Contact extends Model
         return $this->belongsTo(category::class);
     }
 
-    public function scopeCategorySearch($query, $category_id)
-    {
-        if (!empty($category_id)) {
-            $query->where('category_id', $category_id);
-        }
-        return $query;
-    }
-
-
     public function scopeKeywordSearch($query, $keyword)
     {
         if (!empty($keyword)) {
@@ -42,5 +33,21 @@ class Contact extends Model
                 ->orWhere('email', 'like', '%' . $keyword . '%');
         }
         return $query;
+    }
+
+    public function scopeGenderSearch($query, $gender)
+    {
+        if ($gender === null || $gender === '') {
+            return $query;
+        }
+        return $query->where('gender', $gender);
+    }
+
+    public function scopeCategorySearch($query, $category_id)
+    {
+        if ($category_id === null || $category_id === '') {
+            return $query;
+        }
+        return $query->where('category_id', $category_id);
     }
 }

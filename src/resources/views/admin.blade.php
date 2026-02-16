@@ -23,12 +23,15 @@
         <input class="search-form__item-input" type="text" name="keyword" placeholder="名前やメールアドレスを入力してください">
         <select class="search-form__item-gender" name="gender">
           <option value="">性別</option>
+          <option value="1" @selected(request('gender')=='1')>男性</option>
+          <option value="2" @selected(request('gender')=='2')>女性</option>
+          <option value="3" @selected(request('gender')=='3')>その他</option>
         </select>
         <select class="search-form__item-category" name="category">
           <option value="" selected>お問い合わせの種類</option>
-          <option value="1">男性</option>
-          <option value="2">女性</option>
-          <option value="3">その他</option>
+          @foreach ($categories as $category)
+            <option value="{{ $category['id'] }}" @selected(request('category') == $category['id'])>{{ $category['content'] }}</option>
+          @endforeach
         </select>
         <input type="date">
         <button class="search-form__item-button" type="submit">検索</button>
