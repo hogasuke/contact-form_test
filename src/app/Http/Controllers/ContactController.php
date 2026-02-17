@@ -75,7 +75,7 @@ class ContactController extends Controller
 
     public function admin()
     {
-        $contacts = Contact::Paginate(7);
+        $contacts = Contact::with('category')->paginate(7);
         $categories = Category::all();
         return view('admin', compact('contacts', 'categories'));
     }

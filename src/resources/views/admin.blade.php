@@ -60,7 +60,7 @@
           <span class="contact-table__gender">{{ $contact->gender_label }}</span>
           <span class="contact-table__email">{{ $contact['email'] }}</span>
           <span class="contact-table__category">{{ $contact->category->content }}</span>
-          <span class="contact-table__detail"></span>
+          <button class="contact-table__button">詳細</button>
       </td>
       </tr>
       @endforeach
