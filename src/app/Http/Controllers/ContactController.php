@@ -92,9 +92,14 @@ class ContactController extends Controller
         return view('admin', compact('contacts', 'categories'));
     }
 
-    public function export()
+    public function export(Request $request)
     {
-        $contacts = Contact::with('category')->get();
+        $contacts = Contact::with('category')
+            ->KeywordSearch($request->keyword)
+            ->GenderSearch($request->gender)
+            ->CategorySearch($request->category)
+            ->CreatedAtSearch($request->created_at)
+            ->get();
         $filename ='contacts_' . now()->format('Ymd_His') . '.csv';
         $headers = [
             'Content-Type' => 'text/csv',
