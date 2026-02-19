@@ -20,17 +20,17 @@
     <form class="search-form" action="/admin/search" method="get">
       @csrf
       <div class="search-form__item">
-        <input class="search-form__item-input" type="text" name="keyword" placeholder="名前やメールアドレスを入力してください">
+        <input class="search-form__item-input" type="text" name="keyword" placeholder="名前やメールアドレスを入力してください" value="{{ request('keyword') }}">
         <select class="search-form__item-gender" name="gender">
-          <option value="">性別</option>
-          <option value="1" @selected(request('gender')=='1')>男性</option>
-          <option value="2" @selected(request('gender')=='2')>女性</option>
-          <option value="3" @selected(request('gender')=='3')>その他</option>
+          <option value="" {{ request('gender') === null || request('gender') === '' ? 'selected' : '' }}>性別</option>
+          <option value="1" {{ request('gender') === '1' ? 'selected' : '' }}>男性</option>
+          <option value="2" {{ request('gender') === '2' ? 'selected' : '' }}>女性</option>
+          <option value="3" {{ request('gender') === '3' ? 'selected' : '' }}>その他</option>
         </select>
         <select class="search-form__item-category" name="category">
-          <option value="" selected>お問い合わせの種類</option>
+          <option value="" {{ request('category') === null || request('category') === '' ? 'selected' : '' }}>お問い合わせの種類</option>
           @foreach ($categories as $category)
-            <option value="{{ $category['id'] }}" @selected(request('category') == $category['id'])>{{ $category['content'] }}</option>
+            <option value="{{ $category['id'] }}" {{ request('category') == $category['id'] ? 'selected' : '' }}>{{ $category['content'] }}</option>
           @endforeach
         </select>
         <input class="search-form__item-created-at" type="date" name="created_at" value="{{ request('created_at') }}">
