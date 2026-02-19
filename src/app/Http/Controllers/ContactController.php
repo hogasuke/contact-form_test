@@ -91,4 +91,43 @@ class ContactController extends Controller
         $contacts = $query->paginate(7)->withQueryString();
         return view('admin', compact('contacts', 'categories'));
     }
+
+    public function export()
+    {
+        $contacts = Contact::with('category')->get();
+        $filename ='contacts_' . now()->format('Ymd_His') . '.csv';
+        $headers = [
+            'Content-Type' => 'text/csv',
+            'Content-Disposition' => "attachment; filename={$filename}",
+        ];
+        $callback = function () use ($contacts){
+            $stream = fopen('php://output', 'w');
+            fputs($stream, "\xEF\xBB\xBF");
+            fputcsv($stream, [
+                'お名前',
+                '性別',
+                'メールアドレス',
+                'お問い合わせの種類',
+            ]);
+
+            foreach ($contacts as $contact){
+                $genderLabel = match ($contact->gender) {
+                    1 => '男性',
+                    2 => '女性',
+                    3 => 'その他',
+                    default => '未登録',
+                };
+
+                fputcsv($stream, [
+                    $contact->id,
+                    $contact->last_name . ' ' . $contact->first_name,
+                    $genderLabel,
+                    $contact->email,
+                    $contact->category->name,
+                ]);
+            }
+            fclose($stream);
+        };
+        return response()->stream($callback, 200, $headers);
+    }
 }

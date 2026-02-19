@@ -40,7 +40,7 @@
     </form>
   </nav>
   <nav class="admin-nav">
-    <button class="admin-nav__export-button" type="submit">エクスポート</button>
+    <button class="admin-nav__export-button" onclick="location.href='/admin/export'">エクスポート</button>
     <div class="admin-nav__pagination">{{ $contacts->links() }}</div>
   </nav>
   <div class="contact-table">
