@@ -75,7 +75,7 @@ class ContactController extends Controller
 
     public function admin()
     {
-        $contacts = Contact::with('category')->paginate(7);
+        $contacts = Contact::with('category')->paginate(8);
         $categories = Category::all();
         return view('admin', compact('contacts', 'categories'));
     }
@@ -88,7 +88,7 @@ class ContactController extends Controller
             ->CategorySearch($request->category)
             ->CreatedAtSearch($request->created_at);
         $categories = Category::all();
-        $contacts = $query->paginate(7)->withQueryString();
+        $contacts = $query->paginate(8)->withQueryString();
         return view('admin', compact('contacts', 'categories'));
     }
 
