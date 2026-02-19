@@ -119,11 +119,10 @@ class ContactController extends Controller
                 };
 
                 fputcsv($stream, [
-                    $contact->id,
                     $contact->last_name . ' ' . $contact->first_name,
                     $genderLabel,
                     $contact->email,
-                    $contact->category->name,
+                    $contact->category->content,
                 ]);
             }
             fclose($stream);
