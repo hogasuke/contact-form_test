@@ -119,6 +119,14 @@
                     </td>
                   </tr>
                 </table>
+                <form class="delete-form" action="/admin/delete" method="post">
+                  @method('DELETE')
+                  @csrf
+                  <div class="delete-form__button">
+                    <input type="hidden" name="id" value="{{ $contact['id'] }}">
+                    <button class="delete-form__button-submit" type="submit">削除</button>
+                  </div>
+                </form>
               </div>
             </div>
           </div>
