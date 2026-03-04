@@ -54,22 +54,71 @@
         </th>
       </tr>
       @foreach ($contacts as $contact)
+      @php
+        $toggleId = 'modalToggle' . $contact['id'];
+      @endphp
       <tr class="contact-table__row">
         <td class="contact-table__item">
           <span class="contact-table__name">{{ $contact['last_name'] }}　{{ $contact['first_name'] }}</span>
           <span class="contact-table__gender">{{ $contact->gender_label }}</span>
           <span class="contact-table__email">{{ $contact['email'] }}</span>
           <span class="contact-table__category">{{ $contact->category->content }}</span>
-          <label for="modalToggle" class="modal-open-button">詳細</label>
-          <input type="checkbox" id="modalToggle" class="modal-checkbox">
+          <label for="{{ $toggleId }}" class="modal-open-button">詳細</label>
+          <input type="checkbox" id="{{ $toggleId }}" class="modal-checkbox">
           <div class="modal" id="modal">
             <div class="modal-wrapper">
-              <label for="modalToggle" class="close">&times;</label>
+              <label for="{{ $toggleId }}" class="close">&times;</label>
               <div class="modal-content">
-                <h1>Sample</h1>
-                <p>This is a sample modal content. <br><br>
-                  You can place any text or HTML content here.<br><br>
-                  Modals are useful for displaying information, alerts, or interactive elements without leaving the current page</p>
+                <table class="confirm-table__inner">
+                  <tr class="confirm-table__row">
+                    <th class="confirm-table__header">お名前</th>
+                    <td class="confirm-table__text">
+                      {{ $contact['last_name'] }}　{{ $contact['first_name'] }}
+                    </td>
+                  </tr>
+                  <tr class="confirm-table__row">
+                    <th class="confirm-table__header">性別</th>
+                    <td class="confirm-table__text">
+                      {{ $contact['gender_label'] }}
+                    </td>
+                  </tr>
+                  <tr class="confirm-table__row">
+                    <th class="confirm-table__header">メールアドレス</th>
+                    <td class="confirm-table__text">
+                      {{ $contact['email'] }}
+                    </td>
+                  </tr>
+                  <tr class="confirm-table__row">
+                    <th class="confirm-table__header">電話番号</th>
+                    <td class="confirm-table__text">
+                      {{ $contact['tel'] }}
+                    </td>
+                  </tr>
+                  <tr class="confirm-table__row">
+                    <th class="confirm-table__header">住所</th>
+                    <td class="confirm-table__text">
+                      {{ $contact['address'] }}
+                    </td>
+                  </tr>
+                  <tr class="confirm-table__row">
+                    <th class="confirm-table__header">建物名</th>
+                    <td class="confirm-table__text">
+                      {{ $contact['building'] }}
+                    </td>
+                  </tr>
+                  <tr class="confirm-table__row">
+                    <th class="confirm-table__header">お問い合わせの種類</th>
+                    <td class="confirm-table__text">
+                      {{ $category['content'] }}
+                    </td>
+                  </tr>
+                  <tr class="confirm-table__row">
+                    <th class="confirm-table__header">お問い合わせ内容</th>
+                    <td class="confirm-table__text">
+                      {{ $contact['detail'] }}
+                    </td>
+                  </tr>
+                </table>
               </div>
             </div>
           </div>
