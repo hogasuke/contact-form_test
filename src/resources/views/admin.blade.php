@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('css')
-<link rel="stylesheet" href="{{ asset('css/index.css') }}">
+<link rel="stylesheet" href="{{ asset('css/admin.css') }}">
 @endsection
 
 @section('button')
@@ -60,7 +60,19 @@
           <span class="contact-table__gender">{{ $contact->gender_label }}</span>
           <span class="contact-table__email">{{ $contact['email'] }}</span>
           <span class="contact-table__category">{{ $contact->category->content }}</span>
-          <button class="contact-table__button">詳細</button>
+          <label for="modalToggle" class="modal-open-button">詳細</label>
+          <input type="checkbox" id="modalToggle" class="modal-checkbox">
+          <div class="modal" id="modal">
+            <div class="modal-wrapper">
+              <label for="modalToggle" class="close">&times;</label>
+              <div class="modal-content">
+                <h1>Sample</h1>
+                <p>This is a sample modal content. <br><br>
+                  You can place any text or HTML content here.<br><br>
+                  Modals are useful for displaying information, alerts, or interactive elements without leaving the current page</p>
+              </div>
+            </div>
+          </div>
       </td>
       </tr>
       @endforeach
