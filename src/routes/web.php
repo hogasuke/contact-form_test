@@ -8,6 +8,7 @@ Route::get('/', [ContactController::class, 'index']);
 Route::post('/confirm', [ContactController::class, 'confirm']);
 Route::post('/back', [ContactController::class, 'back']);
 Route::post('/thanks', [ContactController::class, 'thanks']);
+Route::post('/login', [AuthController::class, 'login']);
 
 Route::middleware('auth')->group(function () {
     Route::get('/admin', [ContactController::class, 'admin']);
