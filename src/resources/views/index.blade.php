@@ -80,10 +80,12 @@
         <span class="form__label--required">※</span>
       </div>
       <div class="form__group-content">
-        <div class="form__input">
-          <input class="form__input--tel" type="tel" name="tel1" placeholder="080" value="{{ old('tel1') }}" /> - 
-          <input class="form__input--tel" type="tel" name="tel2" placeholder="1234" value="{{ old('tel2') }}" /> - 
-          <input class="form__input--tel" type="tel" name="tel3" placeholder="5678" value="{{ old('tel3') }}" />
+        <div class="form__input form__input--tel">
+          <input class="form__input--tel-field" type="tel" name="tel1" placeholder="080" value="{{ old('tel1') }}" />
+          <span class="tel-sep">-</span>
+          <input class="form__input--tel-field" type="tel" name="tel2" placeholder="1234" value="{{ old('tel2') }}" />
+          <span class="tel-sep">-</span>
+          <input class="form__input--tel-field" type="tel" name="tel3" placeholder="5678" value="{{ old('tel3') }}" />
         </div>
         <div class="form__error">
           @error('tel1')

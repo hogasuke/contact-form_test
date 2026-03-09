@@ -1,6 +1,6 @@
 .contact-form__content {
     margin: 0 auto;
-    padding: 30px 15px;
+    padding: 40px 15px;
     max-width: 1230px;
 }
 
@@ -9,68 +9,167 @@
     text-align: center;
 }
 
+/* 見出しをスクリーンショットに近づける */
+.contact-form__heading h2 {
+    font-family: "Georgia", "Times New Roman", serif;
+    font-size: 34px;
+    font-weight: 400;
+    color: #8b6f64;
+    letter-spacing: 1px;
+    margin: 0 0 10px 0;
+}
+
 .form {
     margin: 0 auto;
-    width: 70%;
-    text-align: center;
+    width: 60%;
+    text-align: left;
 }
 
 .form__group {
     display: flex;
-    justify-content: space-between;
-    margin-bottom: 15px;
+    align-items: flex-start;
+    gap: 20px;
+    margin-bottom: 25px;
+}
+
+.form__group-title {
+    width: 30%;
+    text-align: right;
+    padding-top: 10px;
+    color: #7b665d;
+    font-size: 16px;
+}
+
+.form__group-content {
+    width: 65%;
+}
+
+.form__label--item {
+    display: inline-block;
+    margin-right: 8px;
+    color: #7b665d;
 }
 
 .form__label--required {
-    margin-left: 5px;
-    padding: 4px 6px;
-    border-radius: 3px;
-    background: #fafafa;
-    color: #aaa;
+    margin-left: 8px;
+    color: #e57373;
+    background: transparent;
+    padding: 0;
 }
 
 .form__error {
     height: 20px;
-    color: #ff0000;
+    color: #e57373;
     text-align: left;
 }
 
-.form__input input,
+.form__input input:not([type="radio"]):not([type="checkbox"]),
 .form__input textarea,
 .form__input select {
-    padding: 10px;
-    width: 600px;
-    border: 1px solid #ddd;
+    padding: 12px;
+    width: 100%;
+    border: 1px solid #eee;
     border-radius: 3px;
-
+    background: #fafafa;
     appearance: none;
 }
 
+/* ラジオ/チェックはブラウザ既定の見た目を使う（サイズとアクセント色を調整） */
+.form__input input[type="radio"],
+.form__input input[type="checkbox"] {
+    appearance: auto;
+    -webkit-appearance: radio;
+    width: 16px;
+    height: 16px;
+    margin: 0 6px 0 0;
+    vertical-align: middle;
+    accent-color: #7b665d;
+}
+
+.form__input--radio label {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
 .form__input input {
-    height: 40px;
+    height: 44px;
 }
 
 .form__input textarea {
     height: 180px;
 }
 
+.form__input--name input {
+    width: 48%;
+    display: inline-block;
+}
+
+.form__input--name input:first-child {
+    margin-right: 4%;
+}
+
+.form__input--tel {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    max-width: 440px;
+}
+
+/* tel-field を明示的にスタイルして横並びを強制 */
+.form__input--tel > .form__input--tel-field,
+.form__input--tel > input {
+    width: 32%;
+    flex: 0 0 32%;
+    display: inline-block;
+    text-align: center;
+    padding: 10px;
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: 3px;
+}
+
+.tel-sep {
+    display: inline-block;
+    width: 16px;
+    text-align: center;
+    color: #6b584f;
+}
+
 .form__input--radio {
     display: flex;
-    gap: 12px;
+    gap: 18px;
     align-items: center;
 }
 
+.form__input--radio label {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: #6b584f;
+}
+
+.form__input--select select {
+    width: 100%;
+    background: #fafafa;
+}
+
+.form__input--textarea textarea {
+    width: 100%;
+    resize: vertical;
+}
+
 .form__button {
-    margin-top: 30px;
+    margin-top: 40px;
+    text-align: center;
 }
 
 .form__button--submit {
-    padding: 10px;
-    width: 30%;
-    height: 50px;
+    padding: 12px 24px;
+    min-width: 180px;
     border: none;
     border-radius: 3px;
-    background: #000;
+    background: #7b665d;
     color: #fff;
     cursor: pointer;
 }
