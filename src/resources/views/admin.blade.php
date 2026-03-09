@@ -47,10 +47,10 @@
     <table class="contact-table__inner">
       <tr class="contact-table__row">
         <th class="contact-table__header">
-          <span class="contact-table__header-span">お名前</span>
-          <span class="contact-table__header-span">性別</span>
-          <span class="contact-table__header-span">メールアドレス</span>
-          <span class="contact-table__header-span">お問い合わせの種類</span>
+          <span class="contact-table__header-label">お名前</span>
+          <span class="contact-table__header-label">性別</span>
+          <span class="contact-table__header-label">メールアドレス</span>
+          <span class="contact-table__header-label">お問い合わせの種類</span>
         </th>
       </tr>
       @foreach ($contacts as $contact)
@@ -124,7 +124,7 @@
                   @csrf
                   <div class="delete-form__button">
                     <input type="hidden" name="id" value="{{ $contact['id'] }}">
-                    <button class="delete-form__button-submit" type="submit">削除</button>
+                    <button class="delete-form__button--submit" type="submit">削除</button>
                   </div>
                 </form>
               </div>

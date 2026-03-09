@@ -12,7 +12,7 @@
 </div>
 
 <div class="home__button">
-  <a href="{{ url('/') }}" class="home__button-submit" type="submit">HOME</a>
+  <a href="{{ url('/') }}" class="home__button--submit" type="submit">HOME</a>
 </div>
 
 @endsection

@@ -67,14 +67,14 @@
         @foreach ($contact as $key => $value)
           <input type="hidden" name="{{ $key }}" value="{{ $value }}" readonly />
         @endforeach
-        <button class="form__button-submit" type="submit">送信</button>
+        <button class="form__button--submit" type="submit">送信</button>
       </form>
       <form class="form" action="/back" method="post">
         @csrf
         @foreach ($contact as $key => $value)
           <input type="hidden" name="{{ $key }}" value="{{ $value }}" readonly />
         @endforeach
-        <button class="form__button-back" type="submit">修正</button>
+        <button class="form__button--back" type="submit">修正</button>
       </form>
     </div>
   </div>

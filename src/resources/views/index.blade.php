@@ -17,9 +17,9 @@
         <span class="form__label--required">※</span>
       </div>
       <div class="form__group-content">
-        <div class="form__input--text">
-          <input class="form__input--text-name" type="text" name="last_name" placeholder="例：山田" value="{{ old('last_name') }}" />
-          <input class="form__input--text-name" type="text" name="first_name" placeholder="例：太郎" value="{{ old('first_name') }}" />
+        <div class="form__input">
+          <input class="form__input--name" type="text" name="last_name" placeholder="例：山田" value="{{ old('last_name') }}" />
+          <input class="form__input--name" type="text" name="first_name" placeholder="例：太郎" value="{{ old('first_name') }}" />
         </div>
         <div class="form__error">
           @error('last_name')
@@ -38,7 +38,7 @@
         <span class="form__label--required">※</span>
       </div>
       <div class="form__group-content">
-        <div class="form__input--radio">
+        <div class="form__input form__input--radio">
           <label>
             <input type="radio" name="gender" value=1 {{ old('gender') == 1 ? 'checked' : '' }}>男性
           </label>
@@ -63,7 +63,7 @@
         <span class="form__label--required">※</span>
       </div>
       <div class="form__group-content">
-        <div class="form__input--text">
+        <div class="form__input">
           <input type="email" name="email" placeholder="test@example.com" value="{{ old('email') }}" />
         </div>
         <div class="form__error">
@@ -80,10 +80,10 @@
         <span class="form__label--required">※</span>
       </div>
       <div class="form__group-content">
-        <div class="form__input--text">
-          <input class="form__input--text-tel" type="tel" name="tel1" placeholder="080" value="{{ old('tel1') }}" /> - 
-          <input class="form__input--text-tel" type="tel" name="tel2" placeholder="1234" value="{{ old('tel2') }}" /> - 
-          <input class="form__input--text-tel" type="tel" name="tel3" placeholder="5678" value="{{ old('tel3') }}" />
+        <div class="form__input">
+          <input class="form__input--tel" type="tel" name="tel1" placeholder="080" value="{{ old('tel1') }}" /> - 
+          <input class="form__input--tel" type="tel" name="tel2" placeholder="1234" value="{{ old('tel2') }}" /> - 
+          <input class="form__input--tel" type="tel" name="tel3" placeholder="5678" value="{{ old('tel3') }}" />
         </div>
         <div class="form__error">
           @error('tel1')
@@ -105,8 +105,8 @@
         <span class="form__label--required">※</span>
       </div>
       <div class="form__group-content">
-        <div class="form__input--text">
-            <input type="text" name="address" placeholder="例：東京都渋谷区千駄ヶ谷1-2-3" value="{{ old('address') }}" />
+        <div class="form__input">
+          <input type="text" name="address" placeholder="例：東京都渋谷区千駄ヶ谷1-2-3" value="{{ old('address') }}" />
         </div>
         <div class="form__error">
           @error('address')
@@ -121,8 +121,8 @@
         <span class="form__label--item">建物名</span>
       </div>
       <div class="form__group-content">
-        <div class="form__input--text">
-            <input type="text" name="building" placeholder="例：千駄ヶ谷マンション101" value="{{ old('building') }}" />
+        <div class="form__input">
+          <input type="text" name="building" placeholder="例：千駄ヶ谷マンション101" value="{{ old('building') }}" />
         </div>
         <div class="form__error">
           @error('building')
@@ -138,7 +138,7 @@
         <span class ="form__label--required">※</span>
       </div>
       <div class="form__group-content">
-        <div class="form__input--select">
+        <div class="form__input form__input--select">
           <select name="category_id">
             <option value="" selected>選択してください</option>
             @foreach($categories as $category)
@@ -162,7 +162,7 @@
         <span class ="form__label--required">※</span>
       </div>
       <div class="form__group-content">
-        <div class="form__input--textarea">
+        <div class="form__input form__input--textarea">
           <textarea name="detail" placeholder="お問い合わせ内容をご記載ください">{{ old('detail') }}</textarea>
         </div>
         <div class="form__error">
@@ -174,7 +174,7 @@
     </div>
 
     <div class="form__button">
-      <button class="form__button-submit" type="submit">確認画面</button>
+      <button class="form__button--submit" type="submit">確認画面</button>
     </div>
   </form>
 </div>

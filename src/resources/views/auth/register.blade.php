@@ -22,7 +22,7 @@
         <span class="form__label--item">お名前</span>
       </div>
       <div class="form__group-content">
-        <div class="form__input--text">
+        <div class="form__input">
           <input type="text" name="name" value="{{ old('name') }}" />
         </div>
         <div class="form__error">
@@ -37,7 +37,7 @@
         <span class="form__label--item">メールアドレス</span>
       </div>
       <div class="form__group-content">
-        <div class="form__input--text">
+        <div class="form__input">
           <input type="email" name="email" value="{{ old('email') }}" />
         </div>
         <div class="form__error">
@@ -52,7 +52,7 @@
         <span class="form__label--item">パスワード</span>
       </div>
       <div class="form__group-content">
-        <div class="form__input--text">
+        <div class="form__input">
           <input type="password" name="password" />
         </div>
         <div class="form__error">
@@ -63,7 +63,7 @@
       </div>
     </div>
     <div class="form__button">
-      <button class="form__button-submit" type="submit">登録</button>
+      <button class="form__button--submit" type="submit">登録</button>
     </div>
   </form>
 </div>
