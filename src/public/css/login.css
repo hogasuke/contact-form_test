@@ -1,72 +1,132 @@
 .login-form__content {
+    max-width: 980px;
     margin: 0 auto;
-    padding: 30px 15px;
-    max-width: 1230px;
-}
-
-.login-form__heading {
-    margin-bottom: 20px;
+    padding: 24px 16px;
     text-align: center;
 }
 
-.form {
+/* Page background to match register page */
+body {
+    background-color: #efe9e2;
+}
+
+.login-form__heading h2 {
+    font-family: "Georgia", "Times New Roman", serif;
+    font-size: 38px;
+    color: #8b6f64;
+    font-weight: 300;
+    margin: 24px 0 32px;
+}
+
+/* White card containing the form */
+.login-form__content .form {
+    max-width: 640px;
+    width: 100%;
     margin: 0 auto;
-    width: 25%;
-    text-align: center;
-}
-
-.form__group {
-    margin-bottom: 5px;
-}
-
-.form__group-title {
+    background: #ffffff;
+    /* reduce bottom padding so button sits closer to card bottom */
+    padding: 88px 56px 48px;
+    border-radius: 6px;
+    border: 1px solid rgba(0,0,0,0.06);
+    box-shadow: 0 1px 0 rgba(0,0,0,0.03);
     text-align: left;
+    min-height: 460px;
 }
 
-.form__error {
-    height: 20px;
-    color: #ff0000;
-    text-align: left;
-}
+.form__group { margin-bottom: 36px; }
+.form__group-title { margin-bottom: 10px; }
 
-/* ラベル項目 */
 .form__label--item {
-    font-weight: 600;
-    display: inline-block;
-    margin-bottom: 6px;
+    display: block;
+    font-size: 18px;
+    color: #7c6a61;
+    font-weight: 500;
 }
 
-.form__group-content {
-    margin-top: 4px;
-}
-
-/* 入力フィールドのスタイル（Bladeの .form__input に合わせる） */
 .form__input input {
-    padding: 10px;
     width: 100%;
     height: 40px;
-    border: 1px solid #ddd;
-    border-radius: 3px;
-    appearance: none;
-}
-
-.form__button {
-    margin-top: 20px;
-}
-
-/* Blade内のボタンクラス名に合わせる */
-.form__button--submit {
-    padding: 10px;
-    width: 30%;
-    height: 50px;
+    padding: 8px 12px;
+    background: #f4f4f4;
     border: none;
+    border-radius: 2px;
+    font-size: 14px;
+    color: #4a3f3a;
+    line-height: 1.2;
+}
+
+.form__input input:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(139,111,100,0.08);
+}
+
+.form__error { color: #c8332b; font-size: 13px; margin-top: 6px; }
+
+.form__button { text-align: center; margin-top: 64px; }
+
+.form__button--submit {
+    background: #6f5e56;
+    color: #ffffff;
+    border: none;
+    padding: 10px 28px;
+    min-width: 120px;
     border-radius: 3px;
-    background: #000;
-    color: #fff;
     cursor: pointer;
 }
+.form__button--submit:hover { background: #5f4f48; }
 
-.register__link {
-    margin-top: 20px;
-    text-align: center;
+/* Header login/register button styling (page-specific overrides) */
+.header__inner { position: relative; }
+.header-nav {
+    position: absolute;
+    top: 50%;
+    right: 24px;
+    transform: translateY(-50%);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.header-nav__item { display: inline-block; vertical-align: middle; }
+.header-nav__item--button {
+    background: transparent;
+    border: 1px solid #e9ddd6;
+    color: #cdbfb6;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    line-height: 1;
+    min-width: 84px;
+}
+.header-nav__item--button:hover {
+    background: #f7f2ef;
+    color: #bfa89f;
+}
+
+/* Adjust header white area and logo spacing for login page */
+.header {
+    background: #ffffff;
+    padding-top: 34px;
+    padding-bottom: 18px;
+}
+.header__logo {
+    font-size: 36px;
+    color: #8b6f64;
+    font-weight: 300;
+    margin: 0 auto;
+    padding-bottom: 0;
+    line-height: 1;
+}
+.header__inner { border-bottom: none; }
+
+/* Bring main content closer under header for balance */
+main { padding-top: 34px; }
+
+/* Small screens adjustments */
+@media (max-width: 640px) {
+    .login-form__heading h2 { font-size: 28px; }
+    .login-form__content .form { padding: 28px 20px; }
+    .header-nav { right: 12px; }
 }
