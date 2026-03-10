@@ -58,20 +58,11 @@
 
 /* 管理画面全体コンテナ */
 .contact-form__content {
-    width: 100%;
-    max-width: none;
-    margin: 0;
-    padding: 20px;
-}
-.contact-form__content {
-    /* スクリーンショットに合わせて広めの中央カラムにする */
-    max-width: 1200px;
     width: auto;
+    max-width: 1200px; /* スクリーンショットを参考に、より広い中央カラムに調整 */
     margin: 30px auto;
-    padding: 20px 40px;
+    padding: 20px 30px;
     box-sizing: border-box;
-    max-height: 13in; /* 全体が13インチの高さに収まるように制限 */
-    overflow: auto;   /* 内容が多い場合はコンテンツ内でスクロール */
 }
 
 /* タイトル（login/register と揃える） */
@@ -113,9 +104,9 @@
     border-radius: 3px;
     font-size: 14px;
 }
-.search-form__item-input { flex: 1 1 auto; min-width: 320px; box-sizing: border-box; }
+.search-form__item-input { flex: 1 1 auto; min-width: 280px; box-sizing: border-box; }
 .search-form__item-gender { min-width: 84px; width: auto; }
-.search-form__item-category { min-width: 200px; width: auto; }
+.search-form__item-category { min-width: 180px; width: auto; }
 .search-form__item-button-submit,
 .search-form__item-button-reset {
     display: inline-flex;
@@ -230,7 +221,7 @@
     text-align: left;
     background: #8b6f64;
     color: #fff;
-    padding: 14px 16px;
+    padding: 14px 30px; /* コンテンツの左右パディングに合わせる */
     font-weight: 600;
 }
 .contact-table__row { border-bottom: 1px solid #eee; }
@@ -238,7 +229,7 @@
     display: grid;
     grid-template-columns: 1fr 120px 1fr 1fr 80px;
     align-items: center;
-    padding: 14px 16px;
+    padding: 14px 30px; /* コンテンツの左右パディングに合わせる */
     background: #fff;
     color: #5a4c47;
 }
