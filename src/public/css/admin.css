@@ -58,9 +58,17 @@
 
 /* 管理画面全体コンテナ */
 .contact-form__content {
-    max-width: 980px;
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    padding: 20px;
+}
+.contact-form__content {
+    /* スクリーンショットに合わせて広めの中央カラムにする */
+    max-width: 1200px;
+    width: auto;
     margin: 30px auto;
-    padding: 20px 15px;
+    padding: 20px 40px;
     box-sizing: border-box;
     max-height: 13in; /* 全体が13インチの高さに収まるように制限 */
     overflow: auto;   /* 内容が多い場合はコンテンツ内でスクロール */
@@ -92,7 +100,7 @@
     flex-wrap: nowrap; /* デスクトップでは横一列 */
     width: 100%;
     box-sizing: border-box;
-    padding: 0 15px; /* コンテンツの左右内側に合わせる */
+    padding: 0; /* コンテンツの左右端に揃えるため内側パディングは無効化 */
 }
 .search-form__item-input,
 .search-form__item-gender,
@@ -306,12 +314,6 @@ body.admin .header__logo {
     line-height: 1;
 }
 body.admin main { padding-top: 34px; }
-
-/* 管理ページ全体のメイン領域を13in高さに制限して、内部コンテンツでスクロールさせる */
-body.admin main {
-    max-height: 13in;
-    overflow: hidden;
-}
 
 body.admin .header-nav {
     position: absolute;
