@@ -141,7 +141,7 @@
       </div>
       <div class="form__group-content">
         <div class="form__input form__input--select">
-          <select name="category_id">
+          <select name="category_id" required>
             <option value="" selected>選択してください</option>
             @foreach($categories as $category)
               <option value="{{ $category['id'] }}" {{ old('category_id') == $category['id'] ? 'selected' : '' }}>

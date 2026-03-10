@@ -1,36 +1,51 @@
 .header {
     background: #ffffff;
-    border-bottom: 1px solid #eee;
+    border-bottom: none;
+    padding-top: 14px; /* reduced to fit 13" vertical space */
+    padding-bottom: 0;
 }
 
 /* Page base */
 body {
-    background-color: #f6f4f2;
+    background-color: #ffffff;
     color: #5a4c47;
     font-family: "Helvetica Neue", "Hiragino Kaku Gothic ProN", "ヒラギノ角ゴ ProN W3", "Segoe UI", Arial, sans-serif;
 }
 
 .header__inner {
     margin: 0 auto;
-    padding: 60px 15px 20px;
+    padding: 0 15px 0; /* keep bottom padding 0 so logo sits flush with border */
     max-width: 1230px;
     text-align: center;
+    border-bottom: 1px solid #eee;
 }
 
 .header__logo {
     color: #8b6f64;
     text-decoration: none;
     font-weight: 300;
-    font-size: 34px;
+    font-size: 30px; /* slightly smaller to reduce vertical footprint */
     font-family: "Georgia", "Times New Roman", serif;
-    display: inline-block;
+    display: block;
     letter-spacing: 1px;
 }
 
-main {
+/* remove inline-block baseline gap so logo sits flush with border */
+.header__logo {
     margin: 0 auto;
-    max-width: 1230px;
-    padding: 30px 15px 80px;
+    padding-bottom: 0;
+    line-height: 1;
+    margin-bottom: -8px; /* less aggressive pull to tighten space */
+}
+
+main {
+    /* Remove card appearance so inner and outer share same background */
+    background: transparent;
+    margin: 6px auto;
+    max-width: 980px;
+    padding: 12px 16px 18px; /* reduced padding to save vertical space */
+    border-radius: 0;
+    box-shadow: none;
 }
 
 /* Header nav placeholder (keeps header layout consistent) */

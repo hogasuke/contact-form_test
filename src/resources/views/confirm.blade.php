@@ -2,12 +2,13 @@
 
 @section('css')
   <link rel="stylesheet" href="{{ asset('css/confirm.css') }}" />
+  <link rel="stylesheet" href="{{ asset('css/index.css') }}" />
 @endsection
 
 @section('content')
-  <div class="confirm__content">
-    <div class="confirm__heading">
-      <h2>confirm</h2>
+  <div class="contact-form__content">
+    <div class="contact-form__heading">
+      <h2>Confirm</h2>
     </div>
     <div class="confirm-table">
       <table class="confirm-table__inner">
