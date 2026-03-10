@@ -55,3 +55,288 @@
 .modal-checkbox:checked+.modal {
     display: flex;
 }
+
+/* 管理画面全体コンテナ */
+.contact-form__content {
+    max-width: 980px;
+    margin: 30px auto;
+    padding: 20px 15px;
+    box-sizing: border-box;
+    max-height: 13in; /* 全体が13インチの高さに収まるように制限 */
+    overflow: auto;   /* 内容が多い場合はコンテンツ内でスクロール */
+}
+
+/* タイトル（login/register と揃える） */
+.contact-form__heading {
+    text-align: center;
+    margin-bottom: 18px;
+}
+.contact-form__heading h2 {
+    font-family: "Georgia", "Times New Roman", serif;
+    color: #8b6f64;
+    font-weight: 300;
+    font-size: 32px;
+    margin: 8px 0 0;
+}
+
+.admin-nav .search-form {
+    display: block;
+    margin: 18px 0 12px; /* フォームをコンテンツ幅に合わせ、左右端を一致させる */
+    width: 100%;
+    max-width: none;
+}
+.search-form__item {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    flex-wrap: nowrap; /* デスクトップでは横一列 */
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0 15px; /* コンテンツの左右内側に合わせる */
+}
+.search-form__item-input,
+.search-form__item-gender,
+.search-form__item-category,
+.search-form__item-created-at {
+    padding: 10px 12px;
+    border: 1px solid #e6e0dc;
+    background: #faf7f6;
+    color: #8b6f64;
+    border-radius: 3px;
+    font-size: 14px;
+}
+.search-form__item-input { flex: 1 1 auto; min-width: 320px; box-sizing: border-box; }
+.search-form__item-gender { min-width: 84px; width: auto; }
+.search-form__item-category { min-width: 200px; width: auto; }
+.search-form__item-button-submit,
+.search-form__item-button-reset {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+    padding: 8px 10px;
+    border-radius: 3px;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    min-width: 56px;
+    height: 36px;
+    line-height: 1;
+    box-sizing: border-box;
+}
+.search-form__item-button-submit {
+    background: #8b6f64;
+    color: #fff;
+}
+.search-form__item-button-reset {
+    background: #e9ded7;
+    color: #8b6f64;
+}
+
+/* ボタンをまとめて右寄せ表示 */
+.search-form__actions {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+@media (max-width: 720px) {
+    .search-form__actions { width: 100%; justify-content: flex-start; }
+    .search-form__item-button-submit,
+    .search-form__item-button-reset { min-width: 120px; }
+}
+
+/* 日付入力とボタンを並べるグループ */
+.search-form__date-group {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    margin-left: auto; /* 日付+ボタンを右端に寄せる */
+}
+
+/* 日付入力の見た目微調整 */
+.search-form__item-created-at {
+    padding: 8px 10px;
+    border: 1px solid #e6e0dc;
+    background: #faf7f6;
+    color: #8b6f64;
+    border-radius: 3px;
+    font-size: 14px;
+    width: 120px;
+}
+
+/* セレクトのテキストが切れないように */
+.search-form__item-gender,
+.search-form__item-category,
+.search-form__item-created-at,
+.search-form__item-input {
+    overflow: visible;
+}
+
+/* allow select text to be fully visible */
+.search-form__item-gender select,
+.search-form__item-category select {
+    white-space: normal;
+}
+
+@media (max-width: 920px) {
+    /* 横幅が狭い場合は折り返して縦並びにする */
+    .search-form__item { flex-wrap: wrap; }
+    .search-form__date-group { width: 100%; justify-content: flex-start; margin-left: 0; }
+    .search-form__item-created-at { min-width: 140px; }
+    .search-form__item-gender { width: 100%; flex: 0 0 48%; }
+    .search-form__item-category { width: 100%; flex: 0 0 48%; }
+}
+
+/* エクスポートとページネーション */
+.admin-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+.admin-nav__export-button {
+    padding: 8px 14px;
+    background: #efe6df;
+    color: #8b6f64;
+    border: 1px solid #e6e0dc;
+    border-radius: 3px;
+    cursor: pointer;
+}
+.admin-nav__pagination { color: #8b6f64; }
+
+/* テーブルの見た目 */
+.contact-table {
+    width: 100%;
+    background: transparent;
+}
+.contact-table__inner {
+    width: 100%;
+    border-collapse: collapse;
+}
+.contact-table__header {
+    display: grid;
+    grid-template-columns: 1fr 120px 1fr 1fr 80px;
+    align-items: center;
+    justify-items: start;
+    text-align: left;
+    background: #8b6f64;
+    color: #fff;
+    padding: 14px 16px;
+    font-weight: 600;
+}
+.contact-table__row { border-bottom: 1px solid #eee; }
+.contact-table__item {
+    display: grid;
+    grid-template-columns: 1fr 120px 1fr 1fr 80px;
+    align-items: center;
+    padding: 14px 16px;
+    background: #fff;
+    color: #5a4c47;
+}
+.contact-table__name { font-weight: 500; }
+.contact-table__gender,
+.contact-table__email,
+.contact-table__category { color: #8b6f64; }
+
+/* 詳細ボタン */
+.modal-open-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px 8px;
+    color: #8b6f64;
+    cursor: pointer;
+    background-color: transparent;
+    border: 1px solid #e6e0dc;
+    border-radius: 4px;
+    font-size: 13px;
+    height: 34px;
+    line-height: 1;
+    text-align: center;
+}
+
+/* モーダル改良 */
+.modal {
+    z-index: 9999;
+}
+.modal-wrapper {
+    max-height: 80vh;
+    overflow: auto;
+}
+
+/* 簡易ページネーション見た目調整 */
+.pagination {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+}
+.pagination .page-item .page-link {
+    border: 1px solid #e6e0dc;
+    color: #8b6f64;
+    background: #fff;
+    padding: 6px 10px;
+    border-radius: 3px;
+}
+
+/* スマホ対応 */
+@media (max-width: 720px) {
+    .contact-table__header,
+    .contact-table__item {
+        grid-template-columns: 1fr;
+        gap: 6px;
+        text-align: left;
+    }
+    .search-form__item-input { min-width: 100%; }
+}
+
+/* register ページの login ボタンと揃えるため、admin ページ限定でヘッダー配置とボタンスタイルを適用 */
+body.admin .header__inner { position: relative; border-bottom: none; }
+body.admin .header {
+    background: #ffffff;
+    padding-top: 34px;
+    padding-bottom: 18px;
+}
+body.admin .header__logo {
+    font-size: 36px;
+    color: #8b6f64;
+    font-weight: 300;
+    margin: 0 auto;
+    padding-bottom: 0;
+    line-height: 1;
+}
+body.admin main { padding-top: 34px; }
+
+/* 管理ページ全体のメイン領域を13in高さに制限して、内部コンテンツでスクロールさせる */
+body.admin main {
+    max-height: 13in;
+    overflow: hidden;
+}
+
+body.admin .header-nav {
+    position: absolute;
+    top: 50%;
+    right: 24px;
+    transform: translateY(-50%);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+body.admin .header-nav__item { display: inline-block; vertical-align: middle; }
+body.admin .header-nav__item--button {
+    background: transparent;
+    border: 1px solid #e9ddd6;
+    color: #cdbfb6;
+    padding: 4px 8px;
+    font-size: 12px;
+    line-height: 1;
+    min-width: 84px;
+    border-radius: 4px;
+}
+body.admin .header-nav__item--button:hover {
+    background: #f7f2ef;
+    color: #bfa89f;
+}

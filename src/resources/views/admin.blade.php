@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('bodyClass', 'admin')
+
 @section('css')
 <link rel="stylesheet" href="{{ asset('css/admin.css') }}">
 @endsection
@@ -33,9 +35,13 @@
             <option value="{{ $category['id'] }}" {{ request('category') == $category['id'] ? 'selected' : '' }}>{{ $category['content'] }}</option>
           @endforeach
         </select>
-        <input class="search-form__item-created-at" type="date" name="created_at" value="{{ request('created_at') }}">
-        <button class="search-form__item-button-submit" type="submit">検索</button>
-        <button class="search-form__item-button-reset" type="button" onclick="location.href='/admin'">リセット</button>
+        <div class="search-form__date-group">
+          <input class="search-form__item-created-at" type="date" name="created_at" value="{{ request('created_at') }}">
+          <div class="search-form__actions">
+            <button class="search-form__item-button-submit" type="submit">検索</button>
+            <button class="search-form__item-button-reset" type="button" onclick="location.href='/admin'">リセット</button>
+          </div>
+        </div>
       </div>
     </form>
   </nav>
