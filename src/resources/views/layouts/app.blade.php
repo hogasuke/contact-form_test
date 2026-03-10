@@ -11,7 +11,7 @@
   @yield('css')
 </head>
 
-<body>
+<body class="@yield('bodyClass')">
   <header class="header">
     <div class="header__inner">
       <a class="header__logo" href="/">

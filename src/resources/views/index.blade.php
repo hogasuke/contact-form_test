@@ -17,7 +17,7 @@
         <span class="form__label--required">※</span>
       </div>
       <div class="form__group-content">
-        <div class="form__input">
+        <div class="form__input form__input--name-group">
           <input class="form__input--name" type="text" name="last_name" placeholder="例：山田" value="{{ old('last_name') }}" />
           <input class="form__input--name" type="text" name="first_name" placeholder="例：太郎" value="{{ old('first_name') }}" />
         </div>

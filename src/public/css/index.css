@@ -74,6 +74,13 @@
     appearance: none;
 }
 
+/* 入力は枠内で計算するために box-sizing を統一 */
+.form__input input,
+.form__input textarea,
+.form__input select {
+    box-sizing: border-box;
+}
+
 /* ラジオ/チェックはブラウザ既定の見た目を使う（サイズとアクセント色を調整） */
 .form__input input[type="radio"],
 .form__input input[type="checkbox"] {
@@ -100,28 +107,45 @@
     height: 180px;
 }
 
-.form__input--name input {
-    width: 48%;
-    display: inline-block;
+.form__input--name {
+    /* style applied directly to inputs: make two name fields sit side-by-side */
 }
 
-.form__input--name input:first-child {
-    margin-right: 4%;
+input.form__input--name {
+    width: 48%;
+    display: inline-block;
+    box-sizing: border-box;
+    vertical-align: top;
+}
+
+input.form__input--name + input.form__input--name {
+    margin-left: 0;
+}
+
+/* 名前フィールドのラッパーで強制的に横並びにする（互換性確保） */
+.form__input--name-group {
+    display: flex;
+    gap: 4%;
+    align-items: center;
+}
+
+.form__input--name-group input.form__input--name {
+    flex: 0 0 48%;
+    width: auto;
 }
 
 .form__input--tel {
     display: flex;
     align-items: center;
     gap: 12px;
-    max-width: 440px;
+    width: 100%;
 }
 
-/* tel-field を明示的にスタイルして横並びを強制 */
+/* tel inputs: 単純に flex:1 にしてコンテナ幅いっぱいに広げる（区切りは固定幅） */
 .form__input--tel > .form__input--tel-field,
 .form__input--tel > input {
-    width: 32%;
-    flex: 0 0 32%;
-    display: inline-block;
+    flex: 1 1 0;
+    min-width: 0;
     text-align: center;
     padding: 10px;
     background: #fff;
@@ -131,7 +155,7 @@
 
 .tel-sep {
     display: inline-block;
-    width: 16px;
+    width: 20px;
     text-align: center;
     color: #6b584f;
 }
