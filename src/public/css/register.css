@@ -1,3 +1,140 @@
+/* Styles specific to the register view (loaded only by register.blade.php) */
+
+/* Page background and main spacing */
+body {
+    background-color: #efe9e2;
+}
+
+main {
+    padding: 48px 0 80px;
+}
+
+/* Centering container and heading */
+.register-form__content {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 24px 16px;
+    text-align: center;
+}
+
+.register-form__heading h2 {
+    font-family: "Georgia", "Times New Roman", serif;
+    font-size: 38px;
+    color: #8b6f64;
+    font-weight: 300;
+    margin: 24px 0 32px;
+}
+
+/* White card containing the form */
+.register-form__content .form {
+    max-width: 640px;
+    width: 100%;
+    margin: 0 auto;
+    background: #ffffff;
+    padding: 44px 56px;
+    border-radius: 6px;
+    border: 1px solid rgba(0,0,0,0.06);
+    box-shadow: 0 1px 0 rgba(0,0,0,0.03);
+    text-align: left;
+}
+
+.form__group { margin-bottom: 22px; }
+
+.form__group-title { margin-bottom: 6px; }
+
+.form__label--item {
+    display: block;
+    font-size: 18px;
+    color: #7c6a61;
+    font-weight: 500;
+}
+
+.form__input input {
+    width: 100%;
+    height: 40px;
+    padding: 8px 12px;
+    background: #f4f4f4;
+    border: none;
+    border-radius: 2px;
+    font-size: 14px;
+    color: #4a3f3a;
+    line-height: 1.2;
+}
+
+.form__input input:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(139,111,100,0.08);
+}
+
+.form__error { color: #c8332b; font-size: 13px; margin-top: 6px; }
+
+.form__button { text-align: center; margin-top: 14px; }
+
+.form__button--submit {
+    background: #7b665e;
+    color: #fff;
+    border: none;
+    padding: 10px 28px;
+    border-radius: 2px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+/* Header login button styling (kept subtle like screenshot) */
+.header-nav__item--button {
+    background: transparent;
+    border: 1px solid #e9ddd6;
+    color: #cdbfb6;
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-size: 13px;
+}
+.header-nav__item--button:hover {
+    background: #f7f2ef;
+    color: #bfa89f;
+}
+
+/* Small screens adjustments */
+@media (max-width: 640px) {
+    .register-form__heading h2 { font-size: 28px; }
+    .register-form__content .form { padding: 28px 20px; }
+}
+
+/* Position login button at top-right for register page only */
+.header__inner { position: relative; }
+.header-nav {
+    position: absolute;
+    top: 50%;
+    right: 24px;
+    transform: translateY(-50%);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.header-nav__item { display: inline-block; vertical-align: middle; }
+.header-nav__item--button { padding: 6px 10px; font-size: 13px; line-height: 1; }
+
+/* Adjust header white area and logo spacing for register page only */
+.header {
+    background: #ffffff;
+    padding-top: 34px;
+    padding-bottom: 18px;
+}
+.header__logo {
+    font-size: 36px;
+    color: #8b6f64;
+    font-weight: 300;
+    margin: 0 auto;
+    padding-bottom: 0;
+    line-height: 1;
+}
+.header__inner { border-bottom: none; }
+
+/* Bring the page content a bit closer under the header for balance */
+main { padding-top: 34px; }
 .register-form__content {
     margin: 0 auto;
     padding: 30px 15px;
@@ -56,15 +193,15 @@
 
 /* Blade内のボタンクラス名に合わせる */
 .form__button--submit {
-    padding: 10px;
-    width: 30%;
-    height: 50px;
+    background: #6f5e56;
+    color: #ffffff;
     border: none;
+    padding: 10px 28px;
+    min-width: 120px;
     border-radius: 3px;
-    background: #000;
-    color: #fff;
     cursor: pointer;
 }
+.form__button--submit:hover { background: #5f4f48; }
 
 .login__link {
     margin-top: 20px;
