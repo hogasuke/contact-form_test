@@ -1,7 +1,7 @@
 .confirm__content {
     margin: 0 auto;
     padding: 30px 15px;
-    max-width: 1230px;
+    max-width: 900px;
 }
 
 .confirm__heading {
@@ -9,13 +9,26 @@
     text-align: center;
 }
 
+.confirm__heading h2 {
+    font-family: "Georgia", "Times New Roman", serif;
+    font-size: 34px;
+    font-weight: 400;
+    color: #8b6f64;
+    letter-spacing: 1px;
+    margin: 0 0 10px 0;
+}
+
 .form {
     margin: 0 auto;
-    width: 70%;
+    width: 100%;
 }
 
 .confirm-table {
-    border: 1px solid #ddd;
+    width: 70%;
+    margin: 0 auto;
+    background: #ffffff;
+    border: 1px solid #eee;
+    box-shadow: 0 2px 0 rgba(0,0,0,0.02);
 }
 
 .confirm-table__inner {
@@ -23,16 +36,18 @@
 }
 
 .confirm-table__header {
-    padding: 15px;
-    width: 20%;
-    border-bottom: 1px solid #ddd;
-    background-color: #eee;
+    padding: 18px 20px;
+    width: 30%;
+    border-bottom: 1px solid #eee;
+    background-color: #bfa995;
+    color: #ffffff;
     font-weight: bold;
+    text-align: left;
 }
 
 .confirm-table__text {
-    padding: 15px;
-    border-bottom: 1px solid #ddd;
+    padding: 18px 20px;
+    border-bottom: 1px solid #eee;
 }
 
 .confirm-table__text input {
@@ -49,15 +64,44 @@
 .form__button {
     margin-top: 30px;
     text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 18px;
+}
+
+.form__button--submit,
+.form__button--back {
+    padding: 12px 36px;
+    min-width: 160px;
+    height: 44px;
+    border-radius: 3px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
 }
 
 .form__button--submit {
-    padding: 10px;
-    width: 30%;
-    height: 50px;
-    border: none;
-    border-radius: 3px;
-    background: #000;
+    background: #8b6f64;
     color: #fff;
-    cursor: pointer;
+    border: none;
+}
+
+.form__button--back {
+    background: transparent;
+    color: #7a6a60;
+    border: 1px solid transparent;
+    text-decoration: none;
+}
+
+.form__button--back:hover {
+    text-decoration: underline;
+}
+
+/* Ensure the forms that hold the buttons don't stretch full width */
+.form__button .form {
+    display: inline-block;
+    width: auto;
+    margin: 0;
 }

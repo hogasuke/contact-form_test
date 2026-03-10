@@ -1,11 +1,18 @@
 .header {
-    background: transparent;
+    background: #ffffff;
     border-bottom: 1px solid #eee;
+}
+
+/* Page base */
+body {
+    background-color: #f6f4f2;
+    color: #5a4c47;
+    font-family: "Helvetica Neue", "Hiragino Kaku Gothic ProN", "ヒラギノ角ゴ ProN W3", "Segoe UI", Arial, sans-serif;
 }
 
 .header__inner {
     margin: 0 auto;
-    padding: 40px 15px;
+    padding: 60px 15px 20px;
     max-width: 1230px;
     text-align: center;
 }
@@ -18,4 +25,21 @@
     font-family: "Georgia", "Times New Roman", serif;
     display: inline-block;
     letter-spacing: 1px;
+}
+
+main {
+    margin: 0 auto;
+    max-width: 1230px;
+    padding: 30px 15px 80px;
+}
+
+/* Header nav placeholder (keeps header layout consistent) */
+.header-nav__item {
+    display: inline-block;
+}
+
+/* Utility: center form areas */
+.center-card {
+    margin-left: auto;
+    margin-right: auto;
 }
