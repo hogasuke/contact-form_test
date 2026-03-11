@@ -58,3 +58,70 @@ main {
     margin-left: auto;
     margin-right: auto;
 }
+
+/* Unified header and page-heading styles for auth/admin pages */
+body.auth .header,
+body.admin .header {
+    background: #ffffff;
+    padding-top: 34px;
+    padding-bottom: 18px;
+}
+body.auth .header__logo,
+body.admin .header__logo {
+    font-size: 36px;
+    color: #8b6f64;
+    font-weight: 300;
+    font-family: "Georgia", "Times New Roman", serif;
+    line-height: 1;
+    margin-bottom: 0;
+}
+body.auth .header__inner,
+body.admin .header__inner {
+    position: relative;
+    border-bottom: none;
+    text-align: center;
+    padding: 0 15px;
+    max-width: 1230px;
+    margin: 0 auto;
+}
+body.auth .header-nav,
+body.admin .header-nav {
+    position: absolute;
+    top: 50%;
+    right: 24px;
+    transform: translateY(-50%);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+body.auth .header-nav__item--button,
+body.admin .header-nav__item--button {
+    background: transparent;
+    border: 1px solid #e9ddd6;
+    color: #cdbfb6;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    line-height: 1;
+    min-width: 84px;
+}
+body.auth .header-nav__item--button:hover,
+body.admin .header-nav__item--button:hover {
+    background: #f7f2ef;
+    color: #bfa89f;
+}
+
+/* Unified H2 for pages */
+.register-form__heading h2,
+.login-form__heading h2,
+.contact-form__heading h2 {
+    font-family: "Georgia", "Times New Roman", serif;
+    font-size: 38px;
+    color: #8b6f64;
+    font-weight: 300;
+    margin: 24px 0 32px;
+    text-align: center;
+}
