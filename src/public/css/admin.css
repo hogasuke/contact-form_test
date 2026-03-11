@@ -333,3 +333,163 @@ body.admin .header-nav__item--button:hover {
     background: #f7f2ef;
     color: #bfa89f;
 }
+
+/* Confirm modal table and layout (matching provided screenshot) */
+.confirm-table__inner {
+    width: 100%;
+    border-collapse: collapse;
+}
+.confirm-table__row { border-bottom: none; }
+.confirm-table__header {
+    width: 220px;
+    padding: 12px 24px 12px 0;
+    text-align: left;
+    vertical-align: top;
+    color: #8b6f64;
+    font-weight: 700;
+    font-size: 16px;
+}
+.confirm-table__text {
+    padding: 12px 0;
+    color: #5a4c47;
+    line-height: 1.8;
+    font-size: 15px;
+}
+
+/* Larger, centered modal window */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.6);
+}
+.modal-wrapper {
+    position: relative;
+    width: 90%;
+    max-width: 740px;
+    max-height: 80vh;
+    padding: 48px 64px;
+    margin: auto;
+    overflow: auto;
+    background-color: #ffffff;
+    border-radius: 6px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.18);
+}
+
+/* Circular close button in top-right */
+.close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    border: 1px solid #e6e0dc;
+    background: #fff;
+    color: #8b6f64;
+    font-size: 20px;
+    cursor: pointer;
+    transform: none;
+}
+
+.modal-content { max-width: 100%; }
+.modal-content .confirm-table__inner td { vertical-align: top; }
+
+/* Centered delete button */
+.delete-form__button {
+    text-align: center;
+    margin-top: 28px;
+}
+.delete-form__button--submit {
+    background: #c23b2b;
+    color: #fff;
+    border: none;
+    padding: 10px 22px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+}
+.delete-form__button--submit:hover { opacity: 0.95; }
+
+/* Ensure modal shows properly when checkbox is checked */
+.modal-checkbox:checked + .modal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Small responsive tweak for narrow screens */
+@media (max-width: 720px) {
+    .modal-wrapper { padding: 28px 20px; width: 96%; }
+    .confirm-table__header { width: 140px; font-size: 15px; }
+}
+
+/* 13-inch screen height optimizations ------------------------------------------------- */
+/* Reduce vertical spacing so admin pages fit within ~768-900px tall displays */
+body.admin .header {
+    padding-top: 22px; /* was 34px */
+    padding-bottom: 12px; /* was 18px */
+}
+body.admin .header__logo {
+    font-size: 34px; /* slightly smaller to save vertical space */
+}
+
+/* Limit main height and allow scrolling inside main to avoid page overflow */
+body.admin main {
+    max-height: calc(100vh - 84px); /* keep header visible */
+    overflow: auto;
+    padding-top: 14px;
+    padding-bottom: 14px;
+}
+
+/* Tighten overall admin content spacing */
+.contact-form__content {
+    margin: 18px auto;
+    padding: 12px 18px;
+    max-width: 980px;
+}
+.contact-form__heading { margin-bottom: 12px; }
+.contact-form__heading h2 { font-size: 28px; margin-top: 6px; }
+
+/* Reduce table row vertical padding to fit more content */
+.contact-table__item,
+.contact-table__header {
+    padding: 10px 18px; /* tightened */
+}
+
+/* Modal wrapper: reduce top/bottom padding and ensure it never exceeds viewport */
+.modal-wrapper {
+    padding: 32px 40px; /* slightly reduced */
+    max-height: calc(100vh - 100px);
+}
+
+/* If modal content still tall, make its inner area scroll */
+.modal-wrapper { overflow: auto; -webkit-overflow-scrolling: touch; }
+
+/* Small screens: keep earlier responsive tweaks but slightly reduce paddings */
+@media (max-width: 920px) {
+    .modal-wrapper { padding: 24px 20px; }
+    .search-form__item-created-at { min-width: 120px; }
+}
+
+@media (max-width: 720px) {
+    body.admin .header { padding-top: 18px; padding-bottom: 10px; }
+    .contact-form__content { padding: 10px 12px; }
+    .modal-wrapper { padding: 20px; width: 96%; }
+}
+
+/* Ensure checkbox-triggered modal still displays centered */
+.modal-checkbox:checked + .modal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
